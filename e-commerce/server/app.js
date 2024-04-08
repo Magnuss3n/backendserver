@@ -32,28 +32,28 @@ mongoose.connect(`mongodb+srv://Lavanye:${password}@cluster0.dafbsko.mongodb.net
 // app.get("/", (req, res) => {
 // })
 
-try {
-// Image Storage Engine 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb) => {
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
+// try {
+// // Image Storage Engine 
+// const storage = multer.diskStorage({
+//     destination: './upload/images',
+//     filename: (req, file, cb) => {
+//         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+//     }
+// })
 
-const upload = multer({ storage: storage })
-//Create upload endpoint for images
-app.use('/images', express.static('upload/images'))
-app.post("/upload", upload.single('product'), (req, res) => {
-    res.json({
-        success: 1,
-        image_url: `http://localhost:${port}/images/${req.file.filename}`
-    })
-})
+// const upload = multer({ storage: storage })
+// //Create upload endpoint for images
+// app.use('/images', express.static('upload/images'))
+// app.post("/upload", upload.single('product'), (req, res) => {
+//     res.json({
+//         success: 1,
+//         image_url: `http://localhost:${port}/images/${req.file.filename}`
+//     })
+// })
     
-} catch (error) {
-    console.log("multer",error);    
-}
+// } catch (error) {
+//     console.log("multer",error);    
+// }
 
 // Schema for Creating Products 
 
