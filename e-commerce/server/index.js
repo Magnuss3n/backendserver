@@ -33,6 +33,7 @@ app.get("/", (req, res) => {
     res.send("Express App is Running")
 })
 
+try {
 // Image Storage Engine 
 const storage = multer.diskStorage({
     destination: './upload/images',
@@ -50,6 +51,10 @@ app.post("/upload", upload.single('product'), (req, res) => {
         image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
+    
+} catch (error) {
+    console.log("multer",error);    
+}
 
 // Schema for Creating Products 
 
