@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser"); 
 const cors = require("cors");
 const { error } = require("console");
 
