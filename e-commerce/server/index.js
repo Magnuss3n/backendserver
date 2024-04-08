@@ -16,9 +16,16 @@ app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // DATABASE CONNECTION WITH MongoDB 
+try {
+ 
 const password = encodeURIComponent("Magnussen@99");
 mongoose.connect(`mongodb+srv://Lavanye:${password}@cluster0.dafbsko.mongodb.net/`);
+   
+} catch (error) {
 
+    console.log("errror in mongo db" ,error);
+    
+}
 
 //API Creation;
 
