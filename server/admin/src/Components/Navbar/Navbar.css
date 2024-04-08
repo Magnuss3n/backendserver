@@ -1,0 +1,47 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    z-index: 1;
+    background: white;
+    box-shadow: 12px 12px 26px #898989,
+        -12px -12px 26px #ffffff;
+}
+
+.navbar img {
+    height: 40px;
+    width: 40px;
+}
+
+.navbar .name {
+    padding-left: 4px;
+    padding-right: 7px;
+    margin-top: -7px;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(10, 0, 80);
+}
+
+.navbar .Admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar .nav-logo {
+    padding-left: 20px;
+}
+
+.navbar .panel {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: -6%;
+    color: rgb(83, 0, 0);
+}
+
+.nav-profile {
+    width: auto;
+    padding-right: 20px;
+}
