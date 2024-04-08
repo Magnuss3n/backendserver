@@ -15,7 +15,7 @@ const LoginSignup = () => {
     const login = async () => {
         console.log('Login function exectued', formData);
         let responseData;
-        await fetch('http://localhost:4000/login', {
+        await fetch(`${window.location.origin}/login`, {
             method: 'POST',
             headers: {
                 Accept: 'application/forn-data',
@@ -34,7 +34,7 @@ const LoginSignup = () => {
     const signup = async () => {
         console.log("Signup function executed", formData);
         let responseData;
-        await fetch('http://localhost:4000/signup', {
+        await fetch(`${window.location.origin}/signup`, {
             method: 'POST',
             headers: {
                 Accept: 'application/forn-data',

@@ -1,5 +1,5 @@
 const port =4000;
-
+// const serverless = require('serverless-http');
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -29,9 +29,8 @@ mongoose.connect(`mongodb+srv://Lavanye:${password}@cluster0.dafbsko.mongodb.net
 
 //API Creation;
 
-app.get("/", (req, res) => {
-    res.send("Express App is Running")
-})
+// app.get("/", (req, res) => {
+// })
 
 try {
 // Image Storage Engine 
@@ -286,6 +285,12 @@ app.post('/getcart', fetchUser, async () => {
 })
 
 
+app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "client", "build")));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+
+
 
 app.listen(port, (error) => {
     if (!error) {
@@ -295,4 +300,6 @@ app.listen(port, (error) => {
     }
 })
 
-module.exports = app;
+
+// app.use('/.netlify/functions/api', app);
+// module.exports.handler = serverless(app);
