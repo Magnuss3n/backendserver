@@ -6,11 +6,13 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const { error } = require("console");
 
 
-app.use(express.json());
+// app.use(express.json());
+app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // DATABASE CONNECTION WITH MongoDB 
