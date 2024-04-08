@@ -144,9 +144,14 @@ app.post('/removeproduct', async (req, res) => {
 
 // Creating the API for getting all product
 app.get('/allproducts', async (req, res) => {
-    let products = await Product.find({});
-    console.log("All Products Fetched");
-    res.send(products);
+    try {
+        let products = await Product.find({});
+        console.log("All Products Fetched");
+        res.send(products);
+            
+    } catch (error) {
+        console.log(error);        
+    }
 })
 
 
