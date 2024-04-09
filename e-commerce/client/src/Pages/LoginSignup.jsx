@@ -3,6 +3,9 @@ import './CSS/LoginSignup.css'
 
 const LoginSignup = () => {
     const [state, setState] = useState('Login');
+    
+    const server="https://e-commerce-project-do5w.vercel.app"
+
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -15,7 +18,7 @@ const LoginSignup = () => {
     const login = async () => {
         console.log('Login function exectued', formData);
         let responseData;
-        await fetch(`${window.location.origin}/login`, {
+        await fetch(`${server}/login`, {
             method: 'POST',
             headers: {
                 Accept: 'application/forn-data',
@@ -34,7 +37,7 @@ const LoginSignup = () => {
     const signup = async () => {
         console.log("Signup function executed", formData);
         let responseData;
-        await fetch(`${window.location.origin}/signup`, {
+        await fetch(`${server}/signup`, {
             method: 'POST',
             headers: {
                 Accept: 'application/forn-data',

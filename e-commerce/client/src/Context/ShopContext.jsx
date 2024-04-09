@@ -2,8 +2,6 @@ import { useState } from "react";
 import React, { createContext } from "react";
 import all_product from "../Components/Assets/all_product.js";
 
-
-
 export const ShopContext = createContext(null);
 const getDefaultCart = () => {
     let cart = {};
@@ -14,12 +12,13 @@ const getDefaultCart = () => {
 }
 const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const server="https://e-commerce-project-do5w.vercel.app"
 
 
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch(`${window.location.origin}/addtocart`, {
+            fetch(`${server}/addtocart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/from data',
@@ -36,7 +35,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch(`${window.location.origin}/removefromcart`, {
+            fetch(`${server}/removefromcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/from data',
